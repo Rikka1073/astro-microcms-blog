@@ -1,0 +1,8 @@
+---
+const { categories } = Astro.props;
+---
+
+<form class="filter mb-4">
+  <input class="btn btn-square" type="reset" value="×" />
+  {categories.map((categorie: any) => <input class="btn mb-1" type="radio" name="categories" aria-label={categorie} />)}
+</form>
