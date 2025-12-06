@@ -20,5 +20,4 @@ const categories = [...new Set(articles.flatMap((article: Categories) => article
 console.log("カテゴリ", categories);
 ---
 
-<Filter categories={categories} client:load />
-<ArticlesList articles={articles} client:load />
+<ArticlesList articles={articles} categories={categories} client:load />
