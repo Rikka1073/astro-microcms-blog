@@ -11,7 +11,7 @@ type Props = {
 
 const Card = ({ title, tags, url }: Props) => {
   return (
-  <div>
+    <div>
       <a href={url}>
         <div className="card bg-base-100 w-auto shadow-sm h-full">
           <figure>
@@ -28,7 +28,7 @@ const Card = ({ title, tags, url }: Props) => {
         </div>
       </a>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
