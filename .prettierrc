@@ -8,6 +8,13 @@
         "printWidth": 200,
         "bracketSameLine": false
       }
+    },
+    {
+      "files": ["*.jsx", "*.tsx"],
+      "options": {
+        "printWidth": 200,
+        "bracketSameLine": false
+      }
     }
   ]
 }

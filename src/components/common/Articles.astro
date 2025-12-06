@@ -1,6 +1,6 @@
 ---
-import Card from "../Card.astro";
-import Filter from "../Filter.astro";
+import Filter from "../react/Filter";
+import ArticlesList from "../react/ArticlesList";
 
 type Categories = {
   name: string;
@@ -20,7 +20,5 @@ const categories = [...new Set(articles.flatMap((article: Categories) => article
 console.log("カテゴリ", categories);
 ---
 
-<Filter categories={categories} />
-<div class="sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-5 lg:grid-cols-4">
-  {articles.map((article: any) => <Card title={article.title} tags={article.tags} url={article.url} />)}
-</div>
+<Filter categories={categories} client:load />
+<ArticlesList articles={articles} client:load />
