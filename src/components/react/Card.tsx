@@ -11,7 +11,7 @@ type Props = {
 
 const Card = ({ title, tags, url }: Props) => {
   return (
-    <div>
+    <div className="mb-4 sm:mb-0">
       <a href={url}>
         <div className="card bg-base-100 w-auto shadow-sm h-full">
           <figure>
