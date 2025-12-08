@@ -13,6 +13,7 @@ type Categories = {
 };
 
 const ArticlesList = ({ articles, categories }) => {
+  console.log(articles);
   const [filter, setFilter] = useState<any>(articles);
 
   const handleFilter = (category: string) => {
@@ -20,6 +21,7 @@ const ArticlesList = ({ articles, categories }) => {
       return article.tags.some((tag: any) => tag.name === category);
     });
     setFilter(filteredArticles);
+    console.log("フィルタ", filteredArticles);
   };
 
   const handleFilterReset = () => {
@@ -33,7 +35,7 @@ const ArticlesList = ({ articles, categories }) => {
         <Filter categories={categories} handleFilter={handleFilter} handleFilterReset={handleFilterReset} />
         <div className="sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-5 lg:grid-cols-4 py-3 mb-4">
           {filter.map((article: any) => (
-            <Card title={article.title} tags={article.tags} url={article.url} />
+            <Card key={article.id} title={article.title} tags={article.tags} url={article.url} />
           ))}
         </div>
       </div>

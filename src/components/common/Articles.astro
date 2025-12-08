@@ -14,10 +14,18 @@ const response = await fetch(`https://qiita.com/api/v2/authenticated_user/items?
   },
 });
 const articles = await response.json();
-console.log("記事データ", articles);
+// console.log("記事データ", articles);
+
+const articlesWithTagIds = articles.map((article) => ({
+  ...article,
+  tags: article.tags.map((tag) => ({
+    ...tag,
+    id: crypto.randomUUID(),
+  })),
+}));
 
 const categories = [...new Set(articles.flatMap((article: Categories) => article.tags).map((tag: Categories) => tag.name))];
 console.log("カテゴリ", categories);
 ---
 
-<ArticlesList articles={articles} categories={categories} client:load />
+<ArticlesList articles={articlesWithTagIds} categories={categories} client:load />

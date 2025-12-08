@@ -1,4 +1,5 @@
 type Tags = {
+  id: string;
   name: string;
   versions: string[];
 };
@@ -21,7 +22,9 @@ const Card = ({ title, tags, url }: Props) => {
             <h2 className="card-title truncate">{title}</h2>
             <div className="card-actions justify-end">
               {tags.map((tag) => (
-                <div className="badge badge-outline">{tag.name}</div>
+                <div key={tag.id} className="badge badge-outline">
+                  {tag.name}
+                </div>
               ))}
             </div>
           </div>
