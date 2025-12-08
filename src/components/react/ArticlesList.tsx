@@ -21,12 +21,10 @@ const ArticlesList = ({ articles, categories }) => {
       return article.tags.some((tag: any) => tag.name === category);
     });
     setFilter(filteredArticles);
-    console.log("フィルタ", filteredArticles);
   };
 
   const handleFilterReset = () => {
     setFilter(articles);
-    console.log("リセット");
   };
 
   return (
